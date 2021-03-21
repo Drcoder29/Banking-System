@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Users</title>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+      integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+      crossorigin="anonymous"
+    />
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Berkshire+Swash&display=swap"
+      rel="stylesheet"
+    />
+    <link href="./styles.css" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="container-fluid text-center p-2 bank-title">Banking System</div>
+    <div class="section-title">Transfer Money</div>
+    <form
+      class="row g-3"
+      style="padding: 200px; overflow: hidden;"
+      action="/Transfer"
+      method="post"
+    >
+      <div
+        class="col-auto"
+        style="display: flex; align-items: center; margin-right: 30px"
+      >
+        <label class="form-label mb-3" style="font-size: 20px">From</label>&nbsp;
+        <select
+          name="From"
+          class="form-select form-select-lg mb-3"
+          style="font-size: 20px; padding: 5px; border-color: #cecece"
+          aria-label=".form-select-lg example"
+        >
+        <option>Select Account</option>
+          <option selected><%= from %></option> 
+        </select>
+      </div>
+      <div
+        class="col-auto"
+        style="display: flex; align-items: center; margin-right: 30px"
+      >
+        <label class="form-label mb-3" style="font-size: 20px">To</label>&nbsp;
+        <select
+          name="To"
+          class="form-select form-select-lg mb-3"
+          style="font-size: 20px; padding: 5px; border-color: #cecece"
+          aria-label=".form-select-lg example"
+        >
+          <option selected>Select Account</option>
+          <% for (let account of accounts) { %>
+          <option value="<%= account.name%>"><%= account.name%></option>
+          <% } %>
+        </select>
+      </div>
+      <div class="col-auto" style="margin-right: 30px">
+        <input
+          name="Amount"
+          type="number"
+          class="form-control"
+          placeholder="Amount"
+        />
+      </div>
+      <div class="col-auto">
+        <button type="submit" class="btn btn-primary mb-3">Transfer</button>
+      </div>
+    </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $("tr").on("click", function () {
+        let name = $(this).attr("name");
+        window.location = `/Transfer?Name=${name}`;
+      });
+    </script>
+  </body>
+</html>

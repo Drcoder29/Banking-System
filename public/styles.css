@@ -1,0 +1,30 @@
+.bg {
+    width: 100%;
+    height: 100%;
+    background-image: url("background.jpg");
+    background-size: cover;
+    overflow: hidden;
+}
+.bank-title {
+    font-family: 'Berkshire Swash', cursive;
+    background-color: #7ee8b9;
+    margin-top: 0;
+    padding: 20px;
+    font-size: 40px;
+}
+
+.button-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-end;
+    padding-right: 10%;
+    padding-top: 300px;
+}
+
+
+.section-title {
+    font-size: 30px;
+}
